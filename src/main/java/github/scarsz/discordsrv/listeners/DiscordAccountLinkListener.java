@@ -85,7 +85,7 @@ public class DiscordAccountLinkListener extends ListenerAdapter {
         // add linked role and nickname back to people when they rejoin the server
 	    AccountLinkManager accountLinkManager = DiscordSRV.getPlugin().getAccountLinkManager();
 		if (accountLinkManager != null) {
-			UUID uuid = DiscordSRV.getPlugin().getAccountLinkManager().getUuid(event.getUser().getId());
+			UUID uuid = accountLinkManager.getUuid(event.getUser().getId());
 			if (uuid != null) {
 				Role roleToAdd = DiscordUtil.resolveRole(DiscordSRV.config().getString("MinecraftDiscordAccountLinkedRoleNameToAddUserTo"));
 				if (roleToAdd == null || roleToAdd.getGuild().equals(member.getGuild())) {
