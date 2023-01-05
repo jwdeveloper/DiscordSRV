@@ -2208,10 +2208,8 @@ public class DiscordSRV extends JavaPlugin {
     }
 
     public Map<String, String> getGroupSynchronizables() {
-        HashMap<String, String> map = new HashMap<>();
-        config.dget("GroupRoleSynchronizationGroupsAndRolesToSync").children().forEach(dynamic ->
-                map.put(dynamic.key().convert().intoString(), dynamic.convert().intoString()));
-        return map;
+	    return config.dget("GroupRoleSynchronizationGroupsAndRolesToSync").children().collect(
+			Collectors.toMap(dynamic -> dynamic.key().convert().intoString(), dynamic -> dynamic.convert().intoString(), (a, b) -> b, HashMap::new));
     }
 
     public Map<String, String> getCannedResponses() {
