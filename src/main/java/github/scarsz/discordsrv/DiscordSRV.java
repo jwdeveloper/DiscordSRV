@@ -1568,7 +1568,7 @@ public class DiscordSRV extends JavaPlugin {
                             }
                         }
                     } catch (Throwable t) {
-                        getLogger().warning("Could not remove JDA Filter: " + t.toString());
+                        getLogger().warning("Could not remove JDA Filter: " +t);
                     }
                 }
 
