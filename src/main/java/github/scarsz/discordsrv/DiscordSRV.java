@@ -663,7 +663,7 @@ public class DiscordSRV extends JavaPlugin {
         // set proxy just in case this JVM doesn't have a proxy selector for some reason
         if (ProxySelector.getDefault() == null) {
             ProxySelector.setDefault(new ProxySelector() {
-                private final List<Proxy> DIRECT_CONNECTION = Collections.unmodifiableList(Collections.singletonList(Proxy.NO_PROXY));
+                private final List<Proxy> DIRECT_CONNECTION = Collections.singletonList(Proxy.NO_PROXY);
                 public void connectFailed(URI arg0, SocketAddress arg1, IOException arg2) {}
                 public List<Proxy> select(URI uri) { return DIRECT_CONNECTION; }
             });
